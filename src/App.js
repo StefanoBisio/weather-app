@@ -26,8 +26,6 @@ function App() {
   const [location, setLocation] = useState({loadingState:true});
 
   useEffect(() => {
-    // fetchUserLocation();
-    // fetchWeather();
 
     //new promise. If the user's location is fetched, the promise is resolved and the weather data is fetched. If the user's location is not fetched, the promise is rejected and an error message is logged to the console.
     new Promise((resolve, reject) => {
@@ -39,8 +37,9 @@ function App() {
       console.log('could not fetch weather data');
     });
 
-  }, []);
-
+    
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  
   //Uses the browser's geolocation API to get the user's location. If the browser doesn't support geolocation, it uses the ipapi.co API to get the user's location.
   function fetchUserLocation() {
     if (navigator.geolocation) {
