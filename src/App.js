@@ -27,16 +27,11 @@ function App() {
 
   useEffect(() => {
 
-    //new promise. If the user's location is fetched, the promise is resolved and the weather data is fetched. If the user's location is not fetched, the promise is rejected and an error message is logged to the console.
-    new Promise((resolve, reject) => {
-      fetchUserLocation();
-      resolve();
-    }).then(() => {
+    //wait for fetchUserLocation to finish before fetching the weather data
+    fetchUserLocation();
+    if (location.loadingState === false) {
       fetchWeather();
-    }).catch(() => {
-      console.log('could not fetch weather data');
-    });
-
+    }
     
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
   
