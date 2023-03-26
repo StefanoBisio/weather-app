@@ -22,7 +22,7 @@ const MaxWidthWrapper = styled.main`
 function App() {
 
   const [weather, setWeather] = useState([]);
-  const [location, setLocation] = useState([]);
+  const [location, setLocation] = useState({loadingState:true});
 
   useEffect(() => {
      //Uses the browser's geolocation API to get the user's location
@@ -61,7 +61,7 @@ function App() {
           <MaxWidthWrapper>
             <Routes>
               <Route path="/" element={
-                <Home location={location} />} />
+                <Home loadingState={location.loadingState} location={location} />} />
               <Route path="about" element={
                 <About />} />
             </Routes>
