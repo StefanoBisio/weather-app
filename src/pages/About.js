@@ -6,13 +6,22 @@ const AboutContainer = styled.div`
     font-size: 1.2rem;
     margin-bottom: 2rem;
   }
+  h2 {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+  li {
+    margin-bottom: 0.5rem;
+  }
 `;
 
 function About() {
     return (
         <AboutContainer>
             <h1>About</h1>
-            <p>This React app functions using the following:</p>
+            <h2>This React app functions using the following:</h2>
             <ul>
                 <li>React.JS</li>
                 <li>React Router</li>
