@@ -1,14 +1,29 @@
 import React from "react";
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
-function Home({loadingState, location}) {
+const HomeContainer = styled.div`
+  h1 {
+    margin-bottom: 2rem;
+  }
+  h2 span {
+    font-weight: 300;
+  }
+`;
+
+function Home({loadingState, weatherData}) {
+
+  //destructure the weather object in array of objects
+  const {location, current, forecast} = weatherData;
+  
+  //if loadingState is true, return loading message
   return (
-    <div>
-      <h1>{loadingState ? "Loading..." : "The weather where you are"}</h1>
-      <p>Latitude: {location.latitude}</p>
-      <p>Longitude: {location.longitude}</p>
-    </div>
-  );
+    <HomeContainer>
+      <h1>React weather app</h1>
+      <h2>{loadingState ? 'Loading...' : <div><span>The weather in: </span>{location.name}</div>}
+      </h2>
+    </HomeContainer>
+  )
+   
 }
 
 export default Home;
