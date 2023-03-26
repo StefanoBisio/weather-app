@@ -13,6 +13,7 @@ import styled from 'styled-components';
 
 const GlobalAppStyling = styled.div`
   font-family: 'Roboto', sans-serif;
+  color: #333;
 `;
 const MaxWidthWrapper = styled.main`
   max-width: 1000px;
@@ -25,7 +26,19 @@ function App() {
   const [location, setLocation] = useState({loadingState:true});
 
   useEffect(() => {
-    fetchUserLocation();
+    // fetchUserLocation();
+    // fetchWeather();
+
+    //new promise. If the user's location is fetched, the promise is resolved and the weather data is fetched. If the user's location is not fetched, the promise is rejected and an error message is logged to the console.
+    new Promise((resolve, reject) => {
+      fetchUserLocation();
+      resolve();
+    }).then(() => {
+      fetchWeather();
+    }).catch(() => {
+      console.log('could not fetch weather data');
+    });
+
   }, []);
 
   //Uses the browser's geolocation API to get the user's location. If the browser doesn't support geolocation, it uses the ipapi.co API to get the user's location.
@@ -36,7 +49,8 @@ function App() {
         //Assigns the user's latitude and longitude to the state variables using setLocation
         setLocation({
           latitude: position.coords.latitude,
-          longitude: position.coords.longitude
+          longitude: position.coords.longitude,
+          loadingState: false
         });
       }
     } else {
@@ -52,6 +66,18 @@ function App() {
           console.log('could not get location from ip address');
         });
     }
+  }
+
+  //Uses the weatherapi to get the weather data for the user's location
+  function fetchWeather() {
+    axios.get(`https://api.weatherapi.com/v1/forecast.json?key=9605465c425b41c0828193555232603&q=${location.latitude},${location.longitude}&days=7&aqi=yes&alerts=no`)
+      .then(res => {
+        setWeather(res.data);
+        console.log({weather})
+      })
+      .catch(error => {
+        console.log('could not get weather data. Error was: ', error);
+      });
   }
 
   return (
