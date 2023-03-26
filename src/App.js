@@ -1,11 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from 'axios';
 
 import Navigation from './components/navigation/Navigation';
 import Home from './pages/Home';
 import About from './pages/About';
+
+import '@csstools/normalize.css';
+import './App.css';
+import styled from 'styled-components';
+
+
+const GlobalAppStyling = styled.div`
+  font-family: 'Roboto', sans-serif;
+`;
+const MaxWidthWrapper = styled.main`
+  max-width: 1000px;
+  margin: 2rem auto;
+`;
 
 function App() {
 
@@ -41,20 +53,22 @@ function App() {
 
   return (
     <div className="App">
+      <GlobalAppStyling>  
+        <BrowserRouter>
 
-      <BrowserRouter>
-        <Navigation />
+          <Navigation />
 
-        <main>
-          <Routes>
-            <Route path="/" element={
-              <Home location={location} />} />
-            <Route path="about" element={
-              <About />} />
-          </Routes>
-        </main>
+          <MaxWidthWrapper>
+            <Routes>
+              <Route path="/" element={
+                <Home location={location} />} />
+              <Route path="about" element={
+                <About />} />
+            </Routes>
+          </MaxWidthWrapper>
 
-      </BrowserRouter>
+        </BrowserRouter>
+      </GlobalAppStyling>  
 
     </div>
   );
