@@ -54,7 +54,7 @@ function About() {
                 <li>Ipapi.co API</li>
                 <li>Weatherapi API</li>
             </ul>
-            <p>See the repository on: <a target="_blank" href="https://github.com/StefanoBisio/weather-app">Github</a></p>
+            <p>See the repository on: <a target="_blank" rel="noreferrer" href="https://github.com/StefanoBisio/weather-app">Github</a></p>
         </AboutContainer>
     );
     }
