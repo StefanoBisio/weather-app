@@ -2,6 +2,9 @@ import React from "react";
 import styled from 'styled-components';
 
 const HomeContainer = styled.div`
+  max-width: 800px;
+  margin: auto;
+  
   h1 {
     font-size: 1.2rem;
     margin-bottom: 2rem;

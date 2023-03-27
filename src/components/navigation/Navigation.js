@@ -5,11 +5,11 @@ import logo from '../../logo.svg';
 
 
 const NavContainer = styled.nav`
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1000px;
+  max-width: 860px;
   margin: 0 auto;
   
   ul {
@@ -29,8 +29,14 @@ const NavContainer = styled.nav`
       }
 `;
 const Logo = styled.img`
-  width: 4rem;
+  width: 5rem;
   animation: App-logo-spin infinite 20s linear;
+  transform: translateX(-1rem);
+  
+  @media (min-width: 500px) {
+    width: 8rem;
+    transform: translateX(-2rem);
+  }
   @keyframes App-logo-spin {
     from {
       transform: rotate(0deg);
