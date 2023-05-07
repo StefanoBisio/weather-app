@@ -1,4 +1,17 @@
-# Getting Started with Create React App
+# Simple Weather App (React JS)
+
+This is a simple weather app built using React JS, primarily created as a refresher on the basics of React, how to use the `useEffect` hook, how to call APIs, and an introduction to using styled-components. It serves as a simple tech demo for picking up React again after a few years. The app displays the current weather and a 7-day forecast for the user's location, fetched from the [Weather API](https://www.weatherapi.com/).
+
+The app is deployed on Netlify and can be accessed at [https://golden-gelato-617287.netlify.app/](https://golden-gelato-617287.netlify.app/).
+
+## Features
+
+- Current weather conditions and 7-day forecast
+- Uses the user's location for weather data
+- Responsive design
+- Demonstrates the use of React Hooks, API calls, and styled-components
+
+---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
